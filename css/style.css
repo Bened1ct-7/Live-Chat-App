@@ -1,0 +1,480 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+ 
+ :root {
+   --text: #3F4373;
+   --header: #fff;
+   --body: #efefef;
+   --form-btn: #4B6ADF;
+   --active-status: #777;
+   --dark: #111;
+   --light: #fff;
+   --dark-light: #555;
+   scroll-behavior: smooth;
+ }
+ 
+ * {
+   font-family: "Poppins", sans-serif;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ .error-text {
+   display: none;
+  }
+ 
+ ul, li {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ body {
+   background: var(--body);
+ }
+ 
+ img {
+   object-fit: cover;
+   max-width: 100%;
+   display: block;
+ }
+ 
+ .grid-container {
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+   height: 100vh;
+ }
+
+.search {
+  height: 50px;
+  position: absolute;
+  top: 1rem;
+  z-index: 5;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+  pointer-events: none;
+}
+
+.search.show {
+  display: flex;
+  pointer-events: auto;
+  animation: show 1s ease 1;
+}
+
+.search.hide {
+  transition: all 0.3s ease;
+  animation: hide 1s ease 1;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  } to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.search .searchBar {
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  flex-basis: 85%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.5s ease;
+}
+
+.search .icon {
+  flex-basis: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: var(--text);
+  border-radius: 0 5px 5px 0;
+}
+
+.search .icon i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+ 
+ a {
+   color: var(--text);
+   text-decoration: none;
+ }
+ 
+ header {
+   background-color: var(--header);
+ }
+ 
+ header .brand {
+   font-size: 1.3rem;
+   font-weight: 600;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--text);
+ }
+ 
+ header .options {
+   position: relative;
+ }
+ 
+ .sub-menu {
+   position: absolute;
+   right: 0;
+   background: var(--header);
+   z-index: 9;
+   width: 8.7rem;
+   transform-origin: top right;
+   transition: all 0.3s ease;
+   transform: scale(0);
+ }
+ 
+ .sub-menu.show {
+   transform: scale(1);
+ }
+ 
+ .sub-menu ul li {
+   color: var(--text);
+   padding: .5rem;
+   transition: all 0.2s ease;
+ }
+ 
+ .sub-menu li a {
+   display: block;
+ }
+ 
+ .sub-menu ul li:nth-child(1) {
+   border-top-left-radius: .3rem;
+   border-top-right-radius: .3rem;
+ }
+ 
+ .sub-menu ul li:nth-child(2) {
+   border-bottom-left-radius: .3rem;
+   border-bottom-right-radius: .3rem;
+ }
+ 
+ .sub-menu li:hover {
+   background: var(--text);
+   color: var(--header);
+ }
+ 
+ .sub-menu li:hover a {
+   color: var(--header);
+ }
+ 
+ header .options i {
+   font-size: 1.5rem;
+   margin: 0 10px 0;
+   color: var(--text)
+ }
+ 
+ .users {
+   display: flex;
+   flex-direction: column;
+   gap: .8rem;
+ }
+ 
+ .users .user {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .user .profile-pic {
+   height: 4.2rem;
+   width: 4.2rem;
+   border-radius: 50%;
+   position: relative;
+ }
+ 
+ .profile-pic img {
+   height: inherit;
+   width: 100%;
+   border-radius: inherit;
+ }
+ 
+ .profile-pic .online-status {
+   font-size: 0.7rem;
+   position: absolute;
+   top: 6px;
+   right: 5px;
+   color: #3CCC59;
+ }
+ 
+ .profile-pic .online-status.offline {
+   color: #aaa;
+ }
+ 
+ .details .username {
+   font-size: 1.1rem;
+   font-weight: 600;
+ }
+ 
+ /* Signup and Signin */
+ 
+ .sign-text {
+   color: var(--text);
+ }
+ 
+ form button.btn {
+   background: var(--form-btn);
+   color: #fff;
+ }
+ 
+ /* Chat */
+ 
+ .header {
+   position: sticky;
+   top: 0;
+   background: #fff;
+ }
+
+.header .user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.user .person {
+  display: flex;
+  align-items: center;
+}
+
+.user i {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.person .username {
+  font-size: 1.05rem;
+  font-weight: 540;
+}
+
+.person .active-status {
+  font-size: 0.9rem;
+  color: var(--active-status);
+}
+
+/* Chat */
+
+.incoming {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.incoming img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.message {
+  font-size: 0.9rem !important;
+}
+
+.incoming .message {
+  color: var(--dark);
+  background: var(--light);
+  border-radius: 20px 20px 20px 0;
+  max-width: 85%;
+}
+
+.outgoing {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.outgoing .message {
+  width: 85%;
+  color: var(--light);
+  background: var(--dark-light);
+  border-radius: 20px 20px 0 20px;
+}
+
+.message .text {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.send-message {
+  display: flex;
+  align-items: center;
+}
+
+.send-message input {
+  flex-basis: 85%;
+  height: 38px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.send-message button {
+  flex-basis: 15%;
+  height: 38px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-message button i {
+  color: var(--light);
+  font-size: 2rem;
+}
+
+.message span {
+  font-size: 0.8rem;
+}
+
+.chat.footer {
+  background:var(--header);
+  position: sticky;
+  bottom: 0;
+}
+
+
+/* User Profile */
+.image {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid var(--text);
+  position: relative;
+}
+
+.image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.image label {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image i {
+  font-size: 1.5rem;
+  color: var(--light);
+}
+
+.user-details .details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1%;
+}
+
+.details p {
+  font-weight: 520;
+}
+
+.details i {
+  font-size: 1.25rem;
+  color: #3F4373;
+}
+
+.details .first {
+  flex-basis: 10%;
+}
+
+.details .second {
+  flex-basis: 77%;
+}
+
+.details .third {
+  flex-basis: 10%;
+}
+
+
+.edit-form {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  background: rgba(0,0,0,0.3);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.edit-form.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edit-form > div {
+  height: 100%;
+}
+
+.edit-form form {
+  margin: 80px auto 0;
+  background: #efefef;
+  position: relative;
+}
+
+.edit-form .fa-x {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.4rem;
+}
+
+/* User Profile  */
+
+.user-detail {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1%;
+}
+
+.user-detail i {
+  flex-basis: 15%;
+  font-size: 1.5rem;
+}
+
+.user-detail .main-details {
+  flex-basis: 84%;
+}
+
+@media screen and (min-width: 700px) {
+  .user-details {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
